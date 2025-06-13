@@ -5,7 +5,7 @@ import {FiArrowLeft} from 'react-icons/fi';
 
 import api from '../../services/api';
 import './styles.css';
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo.png';
 
 export default function NewIncident(){
    
@@ -15,7 +15,7 @@ export default function NewIncident(){
 
     const navigate = useNavigate();
 
-    const ongId =localStorage.getItem('ongId');
+    const medicoId =localStorage.getItem('medicoId');
 
     async function handleNewIncident(e){
         e.preventDefault ();
@@ -29,7 +29,7 @@ export default function NewIncident(){
         try{
             await api.post('incidents', data, {
                 headers:{
-                    Authorization: ongId,
+                    Authorization: medicoId,
                 }
             })
             navigate('/profile');

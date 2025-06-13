@@ -50,12 +50,12 @@ export default function Incidents(){
             <View style={styles.header}>
                 <Image source={logoImg}/>
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} casos</Text>. 
+                    Total de <Text style={styles.headerTextBold}>{total} consultas</Text>. 
                 </Text>
             </View>
             
             <Text style={styles.title}>Bem-vindo!</Text>
-            <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia</Text>
+            <Text style={styles.description}>Escolha o especialista abaixo e se consulte.</Text>
             <FlatList 
                 style={styles.incidentList}
                 data={incidents}
@@ -65,10 +65,10 @@ export default function Incidents(){
                 onEndReachedThreshold={0.2}
                 renderItem={({item: incident})=>(
                     <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>ONG</Text>
+                    <Text style={styles.incidentProperty}>Médico</Text>
                     <Text style={styles.incidentValue}>{incident.name}</Text>
 
-                    <Text style={styles.incidentProperty}>CASO</Text>
+                    <Text style={styles.incidentProperty}>CONSULTA</Text>
                     <Text style={styles.incidentValue}>{incident.title}</Text>
 
                     <Text style={styles.incidentProperty}>Valor</Text>

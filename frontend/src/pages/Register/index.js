@@ -5,7 +5,7 @@ import {FiArrowLeft} from 'react-icons/fi';
 //Icons que podem ser vistos no site www.feathericons.com
 
 import './styles.css';
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo.png';
 
 export default function Register(){
     const [name, setName] =useState('');
@@ -27,7 +27,7 @@ export default function Register(){
                 uf,
             }
             try{
-                const response = await api.post('ongs', data);
+                const response = await api.post('medicos', data);
                 //await serve para esperar cadastrar tudo e quando usa o await é obrigatório utilizar o async
                 alert(`Seu ID de acesso: ${response.data.id}`);
             
@@ -45,7 +45,7 @@ export default function Register(){
 
                         <h1>Cadastro</h1>
                         
-                        <p>Faça seu cadasro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                        <p>Faça seu cadasro, e seja um médico associado tenha mais pacientes em seu consultório.</p>
                     
                         <Link className=".back-link" to="/">
                         <FiArrowLeft size={16} color="#E02841"/>
@@ -54,7 +54,7 @@ export default function Register(){
                     </section>
                     <form onSubmit={handleRegister}>
                         <input 
-                            placeholder='Nome da ONG'
+                            placeholder='Nome do Médico e especilização'
                             value={name}
                             onChange={e => setName(e.target.value)}    
                         />

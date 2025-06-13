@@ -4,7 +4,7 @@ import {FiPower, FiTrash2} from 'react-icons/fi';
 
 import api from '../../services/api'
 import './styles.css';
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo.png';
 
 export default function Profile() {
     
@@ -12,29 +12,29 @@ export default function Profile() {
     
     const [incidents, setIncidents] = useState([]);
 
-    const ongId =localStorage.getItem('ongId');
-    const ongName =localStorage.getItem('ongName');
+    const medicoId =localStorage.getItem('medicoId');
+    const medicoName =localStorage.getItem('medicoName');
     
 
     useEffect(() =>{
         api.get('profile', {
             headers:{
-                Authorization:ongId,
+                Authorization:medicoId,
             }
         }).then(response=>{
             setIncidents(response.data);
         })
-    }, [ongId]);
+    }, [medicoId]);
     async function handleDeleteIncident(id){
         try{
             await api.delete(`incidents/${id}`,{
                 headers:{
-                    Authorization:ongId,
+                    Authorization:medicoId,
                 }
         });
         setIncidents(incidents.filter((incident) => incident.id !== id));
         }catch(err){
-            alert('Erro ao deletar caso, tente novamente');
+            alert('Erro ao desmarcar paciente, tente novamente');
         }
     }
     function handleLogout(){
@@ -46,20 +46,20 @@ export default function Profile() {
         <div className="profile-container">
             <header>
                 <img src={logoImg} alt="Logo"/>
-                <span>Bem vinda, {ongName}</span>
+                <span>Bem vinda, {medicoName}</span>
                 <Link className="button" to="/incidents/new">
-                    Cadastar novo caso
+                    Cadastar novo paciente
                 </Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02141" />
                 </button> 
             </header>
 
-            <h1>Casos cadastrados</h1>
+            <h1>Pacientes cadastrados</h1>
             <ul>
                 {incidents.map(incident =>(
                     <li key={incident.id}>
-                    <strong>CASO</strong>
+                    <strong>PACIENTES</strong>
                     <p>{incident.title}</p>
 
                     <strong>DESCRIÇÃO</strong>
