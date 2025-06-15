@@ -55,7 +55,7 @@ export default function Incidents(){
             </View>
             
             <Text style={styles.title}>Bem-vindo!</Text>
-            <Text style={styles.description}>Escolha o especialista abaixo e se consulte.</Text>
+            <Text style={styles.description}>Escolha o especialista abaixo e consulte-se.</Text>
             <FlatList 
                 style={styles.incidentList}
                 data={incidents}
@@ -65,13 +65,13 @@ export default function Incidents(){
                 onEndReachedThreshold={0.2}
                 renderItem={({item: incident})=>(
                     <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>Médico</Text>
+                    <Text style={styles.incidentProperty}>HOSPITAL</Text>
                     <Text style={styles.incidentValue}>{incident.name}</Text>
 
                     <Text style={styles.incidentProperty}>CONSULTA</Text>
                     <Text style={styles.incidentValue}>{incident.title}</Text>
 
-                    <Text style={styles.incidentProperty}>Valor</Text>
+                    <Text style={styles.incidentProperty}>VALOR</Text>
                     <Text style={styles.incidentValue}>
                         {Intl.NumberFormat('pt-BR',{
                             style:'currency', 

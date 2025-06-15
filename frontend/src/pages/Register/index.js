@@ -45,7 +45,7 @@ export default function Register(){
 
                         <h1>Cadastro</h1>
                         
-                        <p>Faça seu cadasro, e seja um médico associado tenha mais pacientes em seu consultório.</p>
+                        <p>Faça seu cadastro, e seja uma rede associada tenha mais pacientes em seu consultório.</p>
                     
                         <Link className=".back-link" to="/">
                         <FiArrowLeft size={16} color="#E02841"/>
@@ -54,7 +54,7 @@ export default function Register(){
                     </section>
                     <form onSubmit={handleRegister}>
                         <input 
-                            placeholder='Nome do Médico e especilização'
+                            placeholder='Nome do Hospital/Consultório'
                             value={name}
                             onChange={e => setName(e.target.value)}    
                         />

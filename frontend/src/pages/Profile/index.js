@@ -16,7 +16,7 @@ export default function Profile() {
     const medicoName =localStorage.getItem('medicoName');
     
 
-    useEffect(() =>{
+    useEffect(() => {
         api.get('profile', {
             headers:{
                 Authorization:medicoId,
@@ -34,7 +34,7 @@ export default function Profile() {
         });
         setIncidents(incidents.filter((incident) => incident.id !== id));
         }catch(err){
-            alert('Erro ao desmarcar paciente, tente novamente');
+            alert('Erro ao desmarcar consulta, tente novamente');
         }
     }
     function handleLogout(){
@@ -48,18 +48,18 @@ export default function Profile() {
                 <img src={logoImg} alt="Logo"/>
                 <span>Bem vinda, {medicoName}</span>
                 <Link className="button" to="/incidents/new">
-                    Cadastar novo paciente
+                    Cadastar nova consulta
                 </Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02141" />
                 </button> 
             </header>
 
-            <h1>Pacientes cadastrados</h1>
+            <h1>Consultas cadastrados</h1>
             <ul>
                 {incidents.map(incident =>(
                     <li key={incident.id}>
-                    <strong>PACIENTES</strong>
+                    <strong>CONSULTA</strong>
                     <p>{incident.title}</p>
 
                     <strong>DESCRIÇÃO</strong>

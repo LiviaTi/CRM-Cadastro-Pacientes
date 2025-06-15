@@ -34,7 +34,7 @@ export default function NewIncident(){
             })
             navigate('/profile');
         }catch(err){
-            alert('Erro ao cadastrar caso, Tente novamente');
+            alert('Erro ao cadastrar consulta, Tente novamente');
         }
     }
     return(
@@ -45,7 +45,7 @@ export default function NewIncident(){
 
                     <h1>Cadastrar novo caso </h1>
                     
-                    <p>Descreve o caso detalhadamente para encontrar um herói para resolver isso</p>
+                    <p>Descreva o a consulta para encontrar um paciente</p>
                    
                     <Link className=".back-link" to="/profile">
                       <FiArrowLeft size={16} color="#E02841"/>
@@ -54,7 +54,7 @@ export default function NewIncident(){
                 </section>
                 <form onSubmit={handleNewIncident}>
                     <input 
-                        placeholder='Nome do caso'
+                        placeholder='Nome da consulta - Nome do médico'
                         value={title}
                         onChange={e=> setTitle(e.target.value)}
                    />
@@ -64,7 +64,7 @@ export default function NewIncident(){
                         onChange={e=> setDescription(e.target.value)}
                     />
                     <input 
-                        placeholder='Valor em reais'
+                        placeholder='Valor'
                         value={value}
                         onChange={e=> setValue(e.target.value)}
                    

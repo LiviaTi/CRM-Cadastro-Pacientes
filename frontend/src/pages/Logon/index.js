@@ -21,8 +21,8 @@ export default function Logon() {
             //await serve para esperar cadastrar tudo e quando usa o await é obrigatório utilizar o async
             console.log(response.data.name);
         
-            localStorage.setItem('ongId',id);
-            localStorage.setItem('ongName', response.data.name);
+            localStorage.setItem('medicoId',id);
+            localStorage.setItem('medicoName', response.data.name);
             navigate('/profile');
         }catch(err){
             alert('Falha no login, tente novamente');
@@ -32,7 +32,7 @@ export default function Logon() {
     return(
        <div className='logon-container'>
             <section className='form'>
-                <img src={logoImg} alt="Be The Hero" />
+                <img src={logoImg} alt="Mais Consulta" />
                 <form onSubmit={handleLogon}>
                     
                     <h1>Faça seu Logon</h1>
@@ -50,7 +50,7 @@ export default function Logon() {
                     </Link>
                 </form>
             </section>
-            <img src={heroesImg} alt="Be the Hero"/>
+            <img src={heroesImg} alt="Mais Consulta"/>
        </div> 
     );
 }
