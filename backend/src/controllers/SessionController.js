@@ -3,8 +3,7 @@ const connection = require('../database/connection');
 module.exports = {
     async  create(request, response) {
         const { id } = request.body;
-        console.log(`Aqui livinha ${id}`)
-
+        
         const medico = await connection('medicos')
             .where('id',id)
             .select('name')
