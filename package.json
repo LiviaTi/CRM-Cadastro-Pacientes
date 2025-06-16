@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start:prod": "node backend/src/index.js",
-    "postinstall": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+    "postinstall": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "migrate": "cd backend && npx knex migrate:latest"
   },
   "devDependencies": {
     "cpx": "^1.5.0"
