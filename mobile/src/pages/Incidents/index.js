@@ -39,7 +39,7 @@ export default function Incidents(){
         
         setincidents([...incidents, ...response.data]);
         settotal(response.headers['x-total-count']);
-        setLoading(page+1);
+        setPage(page+1);
         setLoading(false);
     }
     useEffect(() =>{
@@ -84,7 +84,7 @@ export default function Incidents(){
                     onPress={()=>navigationToDetail(incident)}
                     >
                         <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
-                        <Feather name="arrow-right" size={16} color="#E02041"/>
+                        <Feather name="arrow-right" size={16} color="#036eff"/>
                     </TouchableOpacity>
                     </View>
                  )}
