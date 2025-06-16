@@ -21,9 +21,6 @@
         "backgroundColor": "#E02041"
       }
     },
-    "web": {
-      "favicon": "./assets/splash.png"
-    },
     "plugins": [
       "expo-mail-composer"
     ]

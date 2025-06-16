@@ -2,6 +2,7 @@
   "name": "crm-cadastro-pacientes",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm --prefix backend start"
+    "start": "npm --prefix backend start",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   }
 }
