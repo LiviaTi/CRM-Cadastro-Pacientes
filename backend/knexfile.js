@@ -1,37 +1,26 @@
-// Update with your config settings.
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
 module.exports = {
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './src/database/db.sqlite'
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './src/database/migrations'
     },
-    useNullAsDefault: true,
+    pool: { min: 2, max: 10 }
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: 'my_db',
       user: 'username',
       password: 'password'
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+    pool: { min: 2, max: 10 },
+    migrations: { tableName: 'knex_migrations' }
   },
 
-    production: {
+  production: {
     client: 'pg',
     connection: {
       connectionString: process.env.DATABASE_URL,
@@ -41,5 +30,4 @@ module.exports = {
       directory: './src/database/migrations'
     }
   }
-
 };
