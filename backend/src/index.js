@@ -5,7 +5,10 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://crm-production-app-aa858b59d6e5.herokuapp.com'
+}));
+app.options('*', cors());
 app.use(express.json());
 app.use(routes);
 
@@ -15,7 +18,7 @@ app.use(express.static(path.join(__dirname, '..', '..', 'frontend', 'build')));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', '..', 'frontend', 'build', 'index.html'));
 });
-console.log('DATABASE_URL:', process.env.DATABASE_URL);
+
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
