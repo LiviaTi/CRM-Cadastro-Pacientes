@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 const routes = require('./routes');
 
@@ -9,31 +8,32 @@ const allowedOrigins = [
   'https://crm-production-app-aa858b59d6e5.herokuapp.com',
 ];
 
-
 app.use((req, res, next) => {
   console.log('Origin:', req.headers.origin);
   next();
 });
 
-
 app.use((req, res, next) => {
   const origin = req.headers.origin;
+
   if (!origin) {
-    
     res.header('Access-Control-Allow-Origin', '*');
     return next();
   }
+
   if (allowedOrigins.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     if (req.method === 'OPTIONS') {
       return res.sendStatus(200);
     }
+
     return next();
-  } else {
-    return res.status(403).send('CORS policy: This origin is not allowed.');
   }
+
+  return res.status(403).send(`CORS policy: Origin ${origin} not allowed`);
 });
 
 app.use(express.json());
