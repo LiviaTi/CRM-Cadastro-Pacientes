@@ -9,9 +9,14 @@ const allowedOrigins = [
   'https://crm-production-app-aa858b59d6e5.herokuapp.com',
 ];
 
+app.use((req, res, next) => {
+  console.log('Origin recebida:', req.headers.origin);
+  next();
+});
+
 app.use(cors({
   origin: function(origin, callback) {
-    if (!origin) return callback(null, true);  
+    if (!origin) return callback(null, true); 
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = `A política CORS bloqueou o acesso da origem ${origin}.`;
       return callback(new Error(msg), false);
