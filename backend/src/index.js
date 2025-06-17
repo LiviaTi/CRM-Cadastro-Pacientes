@@ -4,11 +4,12 @@ const path = require('path');
 const routes = require('./routes');
 
 const app = express();
-app.use((req, res, next) => {
-  console.log('Origin:', req.headers.origin);
-  next();
-});
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://crm-production-app-aa858b59d6e5.herokuapp.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.options('*', cors());
 app.use(express.json());
 app.use(routes);
