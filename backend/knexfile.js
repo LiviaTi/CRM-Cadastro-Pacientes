@@ -31,14 +31,15 @@ module.exports = {
     }
   },
 
-  production: {
+    production: {
     client: 'pg',
     connection: {
-      connectionString: 'postgres://urofn7e7juhjd:p2d638776e4f8bb04831a4ca7ae27b563737cdfbb1122306002940ee2bdc06445@casrkuuedp6an1.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d82kiihhq01ve1',
+      connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false }
     },
     migrations: {
       directory: './src/database/migrations'
     }
   }
+
 };
