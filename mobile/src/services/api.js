@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://192.168.0.251:3333'
+    baseURL: 'https://crm-production-app-aa858b59d6e5.herokuapp.com'
 });
 
 export default api;
